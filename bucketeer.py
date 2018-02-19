@@ -6,9 +6,7 @@ import yaml
 import sys
 
 bucketeer_desc = '''
-Bucketeer is a small script that builds off the useful Sublist3r tool. 
-The Tool tries to identify S3 Buckets and other useful subdomain information, 
-that is used to perform subdomain takeover attacks.  
+Bucketeer is a small script that builds off the useful Sublist3r tool. The Tool tries to identify S3 Buckets and other useful subdomain information, that is used to perform subdomain takeover attacks.  
 '''
 
 bucketeer_logo = '''
@@ -55,6 +53,7 @@ def enum_cloud_subs(domain, yaml_path):
                 for single in answers:
                     for cn in cname_lookups:
                         if cn in single.to_text():
+                            print(colored("Domain: {0}, Identified CNAME with Interesting Data: {1}".format(line.rstrip(), single.to_text()), color='red'))
                             sub_results[line.rstrip()].append(single.to_text())
     except KeyboardInterrupt:
         write_to_yaml(yaml_path)
