@@ -5,8 +5,6 @@ import argparse
 import yaml
 import sys
 
-domain_head = 'ucsf'
-
 bucketeer_desc = '''
 Bucketeer is a small script that builds off the useful Sublist3r tool. 
 The Tool tries to identify S3 Buckets and other useful subdomain information, 
